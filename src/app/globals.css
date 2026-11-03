@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+:root {
+  /* --- Prospect Restauri design tokens --- */
+  --paper: #F2EFE8;        /* cool architectural paper, not warm cream */
+  --paper-soft: #FAF9F5;   /* card surface */
+  --ink: #15171A;          /* near-black, blueprint ink */
+  --ink-soft: #4A4C50;     /* secondary text */
+  --concrete: #9B968B;     /* muted taupe-gray, dividers */
+  --concrete-line: #D9D5CB;/* hairline rules on paper */
+  --brand: #0D0DFF;        /* exact logo blue — signature accent */
+  --brand-ink: #0A0ACC;    /* pressed / darker blue */
+  --charcoal: #17181B;     /* dark panel background */
+  --charcoal-line: #33353A;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-soft: var(--paper-soft);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-concrete: var(--concrete);
+  --color-concrete-line: var(--concrete-line);
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-line: var(--charcoal-line);
+
+  --font-display: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--brand);
+  color: var(--paper);
+}
+
+/* Blueprint grid backdrop, used sparingly behind hero / dark panels */
+.grid-blueprint {
+  background-image:
+    linear-gradient(var(--concrete-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--concrete-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.grid-blueprint-dark {
+  background-image:
+    linear-gradient(var(--charcoal-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--charcoal-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
